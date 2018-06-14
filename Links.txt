@@ -1,0 +1,5 @@
+Sites utilizados como base
+https://www.kaggle.com/startupsci/titanic-data-science-solutions
+https://www.kaggle.com/vinzzhang/titanic-survival-prediction
+https://www.kaggle.com/c/titanic/discussion/57447
+https://www.kaggle.com/pliptor/divide-and-conquer-0-82296/notebook

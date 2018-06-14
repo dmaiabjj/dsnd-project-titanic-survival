@@ -1,0 +1,798 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Fundamentos de Data Science I - Projeto Final}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \subsection{Previsão de Sobrevivência do
+Titanic}\label{previsuxe3o-de-sobrevivuxeancia-do-titanic}
+
+Vamos analisar o conjunto de dado que contém informações e dados
+demográficos de 891 dentre os 2.224 passageiros e tripulação a bordo do
+Titanic e tentar descobrir o motivo de alguns grupos de pessoas serem
+mais propensas a sobreviver do que outras. Para fazer isso, iremos
+seguir os seguintes passos:
+
+\begin{itemize}
+\tightlist
+\item
+  Análise e exploração dos dados
+\item
+  Brainstorm
+\item
+  Wrangle(Limpar, preparar e arrumar os dados)
+\item
+  Visualizar, reportar e demonstrar nossas descobertas
+\end{itemize}
+
+    \subsection{1. Importando bibliotecas
+essencias}\label{importando-bibliotecas-essencias}
+
+\begin{itemize}
+\tightlist
+\item
+  Pandas: Utilizada para transformar os dados contidos no csv em um
+  dataframe de fácil manipulação
+\item
+  Numpy : Utilizada para facilitar nosso esforço na análise dos dados
+\item
+  Seaborn e Matplotlib : Utilizada para construir, customizar e mostrar
+  os gráficos da análise feita
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}485}]:} \PY{c+c1}{\PYZsh{}Importing the pandas library, responsable to manipulate and tranform the data contained on csv files on dataframes}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{c+c1}{\PYZsh{}Importing the numpy library, responsible to smooth our effort in analyze the data}
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{c+c1}{\PYZsh{}Importing the matplotlib and seaborn libraries, responsable to show the graphs about the findings}
+          \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          
+          \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+\end{Verbatim}
+
+
+    \subsection{2. Carregando os dados e verificando o seu
+conteúdo}\label{carregando-os-dados-e-verificando-o-seu-conteuxfado}
+
+Pandas é muito útil para carregar e trabalhar com os dados contidos no
+arquivo csv. Aqui estamos carregando os dados contidos em um csv para
+uma estrutura do Panda chamada dataframe do Panda de fácil manipulação e
+também carregando uma parte dos dados para verificar seu conteúdo.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}457}]:} \PY{n}{passengers}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{titanic\PYZhy{}data\PYZhy{}6.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}457}]:}    PassengerId  Survived  Pclass  \textbackslash{}
+          0            1         0       3   
+          1            2         1       1   
+          2            3         1       3   
+          3            4         1       1   
+          4            5         0       3   
+          
+                                                          Name     Sex   Age  SibSp  \textbackslash{}
+          0                            Braund, Mr. Owen Harris    male  22.0      1   
+          1  Cumings, Mrs. John Bradley (Florence Briggs Th{\ldots}  female  38.0      1   
+          2                             Heikkinen, Miss. Laina  female  26.0      0   
+          3       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1   
+          4                           Allen, Mr. William Henry    male  35.0      0   
+          
+             Parch            Ticket     Fare Cabin Embarked  
+          0      0         A/5 21171   7.2500   NaN        S  
+          1      0          PC 17599  71.2833   C85        C  
+          2      0  STON/O2. 3101282   7.9250   NaN        S  
+          3      0            113803  53.1000  C123        S  
+          4      0            373450   8.0500   NaN        S  
+\end{Verbatim}
+            
+    \subsection{3. Verificando algumas
+estatísticas}\label{verificando-algumas-estatuxedsticas}
+
+\begin{itemize}
+\tightlist
+\item
+  Total de passageiros é de 891 no total
+\item
+  A taxa de sobrevivência foi em torno de 38\%
+\item
+  Por volta de 75\% dos passageiros viajaram sozinhos
+\item
+  A média de idade é perto de 30 anos
+\item
+  A média da tarifa paga foi em torno de 32
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}588}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}588}]:}        PassengerId    Survived      Pclass         Age       SibSp  \textbackslash{}
+          count   891.000000  891.000000  891.000000  891.000000  891.000000   
+          mean    446.000000    0.383838    2.308642   29.371493    0.523008   
+          std     257.353842    0.486592    0.836071   13.277422    1.102743   
+          min       1.000000    0.000000    1.000000    0.000000    0.000000   
+          25\%     223.500000    0.000000    2.000000   21.000000    0.000000   
+          50\%     446.000000    0.000000    3.000000   30.000000    0.000000   
+          75\%     668.500000    1.000000    3.000000   35.000000    1.000000   
+          max     891.000000    1.000000    3.000000   80.000000    8.000000   
+          
+                      Parch        Fare  
+          count  891.000000  891.000000  
+          mean     0.381594   32.204208  
+          std      0.806057   49.693429  
+          min      0.000000    0.000000  
+          25\%      0.000000    7.910400  
+          50\%      0.000000   14.454200  
+          75\%      0.000000   31.000000  
+          max      6.000000  512.329200  
+\end{Verbatim}
+            
+    \subsection{4. Formulando a pergunta}\label{formulando-a-pergunta}
+
+Após conhecer e entender a estrutura dos nossos dados, assim como os
+seus valores, a dúvida que mais se acentua é :
+
+\emph{Quais features(colunas) tem uma correlação com o fator
+sobrevivência?}
+
+Como em todo o desastre, preferências de sobrevivência são dadas
+moralmente para mulheres, crianças, idosos e familias, porém também
+sabemos que pessoas de alto poder aquisitivo podem ter sido
+beneficiadas.
+
+Então vamos analisar e descobrir se os fatores como
+\emph{Taxa(FareGroup)},\emph{Classe do Ticket(Pclass)},
+\emph{Genêro(Sex)}, \emph{Família/Sozinho(FamilySize)} afetaram o fator
+sobrevivência também no desastre do Titanic.
+
+As perguntas seram as seguintes:
+
+\begin{itemize}
+\tightlist
+\item
+  O fator classe ou fator taxa da passagem tiveram relação com o fator
+  sobrevivência? Pessoas com poder aquisitivo maior tinham propensão a
+  sobreviver mais que pessoas com poder aquisitivo menor?
+\item
+  O fator ser passageiro único ou viajar em família teve relação com o
+  fator sobrevivência? Famílias tiveram mais chances de sobreviver do
+  que pessoas viajando sozinha? E o tamanho da família interferia nessa
+  correlação?
+\item
+  O fator genêro teve relação com o fator sobrevivência? Mulheres
+  tiveram mais propensão a sobreviver do que os homens?
+\end{itemize}
+
+    \subsection{5. Classificando as colunas do
+dataframe}\label{classificando-as-colunas-do-dataframe}
+
+\textbf{Dados categóricos}
+
+São dados que servem de label de um grupo de items ou indivíduos. Dados
+categóricos possuem a seguinte subdivisão: * \textbf{Ordinal: } São
+dados que não ordem ou algum tipo de ranking de classificação associado.
+* \textbf{Nominal: } São dados que possuem um ranking de classificação
+associado.
+
+\textbf{Dados Quantitativos}
+
+São dados na qual podemos operar matematicamente em cima deles para
+obter insights úteis. Dados quantitativos possuem a seguinte subdivisão:
+* \textbf{Discreto: } São dados que podem ser subdivididos cada vez mais
+em menores unidades. * \textbf{Contínuo: } São dados que não podem ser
+subdividios em menores unidades.
+
+Nossa classificação das colunas é a seguinte:
+
+\textbf{Dados categóricos}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Ordinal: } Pclass
+\item
+  \textbf{Nominal: } Survived, Sex, and Embarked
+\end{itemize}
+
+\textbf{Dados Quantitativos}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Discreto: } SibSp, Parch
+\item
+  \textbf{Contínuo: } Age, Fare
+\end{itemize}
+
+    \subsection{6. Verificando a qualidades dos
+dados}\label{verificando-a-qualidades-dos-dados}
+
+Realizaremos uma pré-análise para descobrir se existem colunas com dados
+faltantes, nulos ou vazio.
+
+Podemos verificar que as colunas Age, Cabin and Embarked possuem 177,
+687 e 2 dados nulos respectivamentos.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}458}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Duplicated \PYZhy{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+PassengerId      0
+Survived         0
+Pclass           0
+Name             0
+Sex              0
+Age            177
+SibSp            0
+Parch            0
+Ticket           0
+Fare             0
+Cabin          687
+Embarked         2
+dtype: int64
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+PassengerId    891 non-null int64
+Survived       891 non-null int64
+Pclass         891 non-null int64
+Name           891 non-null object
+Sex            891 non-null object
+Age            714 non-null float64
+SibSp          891 non-null int64
+Parch          891 non-null int64
+Ticket         891 non-null object
+Fare           891 non-null float64
+Cabin          204 non-null object
+Embarked       889 non-null object
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.6+ KB
+None
+Duplicated - 0
+
+    \end{Verbatim}
+
+    \subsection{7. Estratégia para as colunas com dados
+faltantes}\label{estratuxe9gia-para-as-colunas-com-dados-faltantes}
+
+\subsubsection{7.1 Dados Quantitativos}\label{dados-quantitativos}
+
+Iremos complementar as colunas com dados faltantes utilizando a mediana
+pra cada Title e transformar o tipo da coluna pra inteiro, que é a
+representação adequada para a coluna. Os seguintes passos serão
+executados: 1. Criaremos uma coluna chamada Title para nos ajudar a
+calcular a idade referente ao título que a pessoa possui no nome 2.
+Calcularemos a mediana da idade pra cada título 3. Preencheremos os
+valores nulos com a mediana da idade referente ao título que a pessoa
+possui
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}459}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([A\PYZhy{}Za\PYZhy{}z]+)}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+          \PY{n}{ages}                \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Title}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
+          \PY{k}{for} \PY{n}{title} \PY{o+ow}{in} \PY{n}{passengers}\PY{o}{.}\PY{n}{Title}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+              \PY{n}{median} \PY{o}{=} \PY{n}{ages}\PY{p}{[}\PY{n}{title}\PY{p}{]}
+              \PY{n}{passengers}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Title} \PY{o}{==} \PY{n}{title}\PY{p}{)}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{median}
+          
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 13 columns):
+PassengerId    891 non-null int64
+Survived       891 non-null int64
+Pclass         891 non-null int64
+Name           891 non-null object
+Sex            891 non-null object
+Age            891 non-null float64
+SibSp          891 non-null int64
+Parch          891 non-null int64
+Ticket         891 non-null object
+Fare           891 non-null float64
+Cabin          204 non-null object
+Embarked       889 non-null object
+Title          891 non-null object
+dtypes: float64(2), int64(5), object(6)
+memory usage: 90.6+ KB
+
+    \end{Verbatim}
+
+    \subsection{7.2 Dados Qualitativos}\label{dados-qualitativos}
+
+Iremos completar as colunas com os dados faltantes utilizando a moda da
+distribuição. A coluna cabine possui vários valores nulos e como já
+temos a classe do ticket não irá nos atrapalhar na análise, então iremos
+dropar essa coluna.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}460}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{Embarked}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{passengers}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embarked}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mode}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cabin}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{columns}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}460}]:} PassengerId    0
+          Survived       0
+          Pclass         0
+          Name           0
+          Sex            0
+          Age            0
+          SibSp          0
+          Parch          0
+          Ticket         0
+          Fare           0
+          Embarked       0
+          Title          0
+          dtype: int64
+\end{Verbatim}
+            
+    \subsection{8. Criando novas colunas}\label{criando-novas-colunas}
+
+Criaremos colunas novas afim de facilitar a análise dos dados
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  FamilySize - Irá representar a quantidade de pessoas de uma família na
+  qual essa pessoa pertence. Se o valor for 1, indica que essa pessoa
+  viajou sozinha.
+\item
+  AgeGroup - Categorização das Idades.
+\item
+  FareGroup - Categorização das Tarifas em 4 faixas
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}587}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{SibSp} \PY{o}{+} \PY{n}{passengers}\PY{o}{.}\PY{n}{Parch}\PY{o}{+} \PY{l+m+mi}{1}
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}            \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+          \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}    \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{p}{,}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{)}
+          \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}   \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Fare}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cheap}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Very Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}     \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Single}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Large}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{9. Visualização Features x
+Sobrevivência}\label{visualizauxe7uxe3o-features-x-sobrevivuxeancia}
+
+Primeiro construímos uma função que passado o nome da feature, ela gera
+um gráfico relacionado a feature Survived
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}559}]:} \PY{k}{def} \PY{n+nf}{generate\PYZus{}graph}\PY{p}{(}\PY{n}{feature}\PY{p}{,}\PY{n}{graph}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+              \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+          \PY{l+s+sd}{    Função que recebe o nome da feature e gera o gráfico relacionado a feature Survived}
+          \PY{l+s+sd}{    Argumentos:}
+          \PY{l+s+sd}{        feature:  String contendo o nome da feature}
+          \PY{l+s+sd}{    Retorna:}
+          \PY{l+s+sd}{        None}
+          \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+              \PY{n}{ax}       \PY{o}{=} \PY{k+kc}{None}
+              \PY{n}{group}    \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{sort}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{p}{)}
+              \PY{n}{df\PYZus{}aux}   \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{group}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{group}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+              \PY{n}{ax}       \PY{o}{=} \PY{n}{df\PYZus{}aux}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{n}{graph}\PY{p}{,}\PY{n}{title}\PY{o}{=}\PY{n}{feature}\PY{p}{,}\PY{n}{grid}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}\PY{n}{legend}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{reverse}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{60}\PY{p}{,}\PY{n}{stacked}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of people}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{;}
+              
+\end{Verbatim}
+
+
+    \subsection{9.1 Gráfico Pclass x
+Survived}\label{gruxe1fico-pclass-x-survived}
+
+No gráfico vemos que a 1º classe foi a única com taxa de sobrevivência
+maior do que a de não sobrevivência comparada as outras classes(2º,3º) e
+que na 3º classe a discrepância entre mortos e sobreviventes foi bem
+alta comparada as outras classes(1º,2º), com muito mais mortos do que
+sobreviventes.
+
+A tendência de sobrevivência é maior em pessoas da 1º mas no caso das
+outras classes(2º,3º) principalmente na 3º, a tendência é de não
+sobrevivência
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}579}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pclass}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.2 Gráfico Sex x Survived}\label{gruxe1fico-sex-x-survived}
+
+No gráfico vemos que a taxa de sobrevivência de mulheres foi maior do
+que a de não sobrevivência comparada a taxa dos homens.
+
+A tendência de sobrevivência é maior nas mulheres do que nos homens.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}580}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sex}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.3 Gráfico FamilySize x
+Survived}\label{gruxe1fico-familysize-x-survived}
+
+Temos uma categorização da quantidade de familiares: * Single - (1) *
+Normal - (2 - 4) * Large - (5 - 11)
+
+No gráfico vemos famílias de tamanho normal, de 2 até 4 integrantes foi
+a única com taxa de sobrevivência maior do que a de não sobrevivência
+comparada com as outras categorias.
+
+A tendência de sobrevivência é maior em famílias de tamanho normal, do
+que em famílias grandes ou até mesmo se a pessoa estivesse viajando
+sozinha.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}586}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.4 Gráfico FareGroup x Survived e Fare x
+Survived}\label{gruxe1fico-faregroup-x-survived-e-fare-x-survived}
+
+Temos uma categorização dos valores da Tarifa pagas: * Cheap - (0 -
+128.082) * Normal - (128.083 - 256.165) * Expensive - (256.166 -
+384.247) * Very Expensive - (384.248 - 512.329)
+
+No gráfico vemos que a tarifa mais barata foi a única que teve a taxa de
+não sobrevivência maior do que de sobrevivência e com uma discrepância
+muito alta comparada com as outras tarifas.
+
+A tendência de sobrevivência é maior em pessoas que obtiveram taxas
+entre Normal e Carissimas(Normal - Very Expensive) comparadas as taxas
+mais baratas(Cheap).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}584}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fare}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.4 Gráfico AgeGroup x Survived e Age x
+Survived}\label{gruxe1fico-agegroup-x-survived-e-age-x-survived}
+
+No gráfico vemos que a faixa etária de (0 - 15) foi a única que teve
+mais sobreviventes do que mortos e que na faixa de (15 - 30) a
+discrepância entre mortos e sobreviventes foi bem alta comparada as
+outras faixas, com muito mais mortos do que sobreviventes.
+
+A tendência de sobrevivência é maior em pessoas de 0 até 15 anos mas no
+caso das outras faixas etárias principalmente de 15 até 30, a tendência
+é de não sobrevivência
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}576}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
