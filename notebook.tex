@@ -317,7 +317,7 @@ essencias}\label{importando-bibliotecas-essencias}
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}485}]:} \PY{c+c1}{\PYZsh{}Importing the pandas library, responsable to manipulate and tranform the data contained on csv files on dataframes}
+{\color{incolor}In [{\color{incolor}616}]:} \PY{c+c1}{\PYZsh{}Importing the pandas library, responsable to manipulate and tranform the data contained on csv files on dataframes}
           \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
           \PY{c+c1}{\PYZsh{}Importing the numpy library, responsible to smooth our effort in analyze the data}
           \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
@@ -338,13 +338,13 @@ uma estrutura do Panda chamada dataframe do Panda de fácil manipulação e
 também carregando uma parte dos dados para verificar seu conteúdo.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}457}]:} \PY{n}{passengers}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{titanic\PYZhy{}data\PYZhy{}6.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}617}]:} \PY{n}{passengers}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{titanic\PYZhy{}data\PYZhy{}6.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}457}]:}    PassengerId  Survived  Pclass  \textbackslash{}
+{\color{outcolor}Out[{\color{outcolor}617}]:}    PassengerId  Survived  Pclass  \textbackslash{}
           0            1         0       3   
           1            2         1       1   
           2            3         1       3   
@@ -384,19 +384,19 @@ estatísticas}\label{verificando-algumas-estatuxedsticas}
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}588}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}618}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}588}]:}        PassengerId    Survived      Pclass         Age       SibSp  \textbackslash{}
-          count   891.000000  891.000000  891.000000  891.000000  891.000000   
-          mean    446.000000    0.383838    2.308642   29.371493    0.523008   
-          std     257.353842    0.486592    0.836071   13.277422    1.102743   
-          min       1.000000    0.000000    1.000000    0.000000    0.000000   
-          25\%     223.500000    0.000000    2.000000   21.000000    0.000000   
-          50\%     446.000000    0.000000    3.000000   30.000000    0.000000   
-          75\%     668.500000    1.000000    3.000000   35.000000    1.000000   
+{\color{outcolor}Out[{\color{outcolor}618}]:}        PassengerId    Survived      Pclass         Age       SibSp  \textbackslash{}
+          count   891.000000  891.000000  891.000000  714.000000  891.000000   
+          mean    446.000000    0.383838    2.308642   29.699118    0.523008   
+          std     257.353842    0.486592    0.836071   14.526497    1.102743   
+          min       1.000000    0.000000    1.000000    0.420000    0.000000   
+          25\%     223.500000    0.000000    2.000000   20.125000    0.000000   
+          50\%     446.000000    0.000000    3.000000   28.000000    0.000000   
+          75\%     668.500000    1.000000    3.000000   38.000000    1.000000   
           max     891.000000    1.000000    3.000000   80.000000    8.000000   
           
                       Parch        Fare  
@@ -497,7 +497,7 @@ Podemos verificar que as colunas Age, Cabin and Embarked possuem 177,
 687 e 2 dados nulos respectivamentos.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}458}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}619}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
           \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}\PY{p}{)}
           \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Duplicated \PYZhy{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -554,7 +554,7 @@ valores nulos com a mediana da idade referente ao título que a pessoa
 possui
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}459}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([A\PYZhy{}Za\PYZhy{}z]+)}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}620}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([A\PYZhy{}Za\PYZhy{}z]+)}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
           \PY{n}{ages}                \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Title}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
           \PY{k}{for} \PY{n}{title} \PY{o+ow}{in} \PY{n}{passengers}\PY{o}{.}\PY{n}{Title}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{:}
               \PY{n}{median} \PY{o}{=} \PY{n}{ages}\PY{p}{[}\PY{n}{title}\PY{p}{]}
@@ -594,14 +594,14 @@ temos a classe do ticket não irá nos atrapalhar na análise, então iremos
 dropar essa coluna.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}460}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{Embarked}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{passengers}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embarked}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mode}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}621}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{Embarked}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{passengers}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embarked}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mode}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cabin}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{columns}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}460}]:} PassengerId    0
+{\color{outcolor}Out[{\color{outcolor}621}]:} PassengerId    0
           Survived       0
           Pclass         0
           Name           0
@@ -634,7 +634,7 @@ Criaremos colunas novas afim de facilitar a análise dos dados
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}587}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{SibSp} \PY{o}{+} \PY{n}{passengers}\PY{o}{.}\PY{n}{Parch}\PY{o}{+} \PY{l+m+mi}{1}
+{\color{incolor}In [{\color{incolor}622}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{SibSp} \PY{o}{+} \PY{n}{passengers}\PY{o}{.}\PY{n}{Parch}\PY{o}{+} \PY{l+m+mi}{1}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}            \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
           \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}    \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{p}{,}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{)}
           \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}   \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Fare}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cheap}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Very Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
@@ -649,7 +649,7 @@ Primeiro construímos uma função que passado o nome da feature, ela gera
 um gráfico relacionado a feature Survived
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}559}]:} \PY{k}{def} \PY{n+nf}{generate\PYZus{}graph}\PY{p}{(}\PY{n}{feature}\PY{p}{,}\PY{n}{graph}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}623}]:} \PY{k}{def} \PY{n+nf}{generate\PYZus{}graph}\PY{p}{(}\PY{n}{feature}\PY{p}{,}\PY{n}{graph}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
               \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
           \PY{l+s+sd}{    Função que recebe o nome da feature e gera o gráfico relacionado a feature Survived}
           \PY{l+s+sd}{    Argumentos:}
@@ -681,7 +681,7 @@ outras classes(2º,3º) principalmente na 3º, a tendência é de não
 sobrevivência
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}579}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pclass}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}624}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pclass}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -698,7 +698,7 @@ que a de não sobrevivência comparada a taxa dos homens.
 A tendência de sobrevivência é maior nas mulheres do que nos homens.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}580}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sex}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}625}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sex}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -722,7 +722,7 @@ que em famílias grandes ou até mesmo se a pessoa estivesse viajando
 sozinha.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}586}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}626}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -747,7 +747,7 @@ entre Normal e Carissimas(Normal - Very Expensive) comparadas as taxas
 mais baratas(Cheap).
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}584}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}627}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
           \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fare}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -775,7 +775,7 @@ caso das outras faixas etárias principalmente de 15 até 30, a tendência
 é de não sobrevivência
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}576}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}628}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
           \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -790,6 +790,13 @@ caso das outras faixas etárias principalmente de 15 até 30, a tendência
     \end{center}
     { \hspace*{\fill} \\}
     
+    \subsection{10 - Lista de sites, livros, fóruns, postagens de blogs,
+repositórios do
+GitHub.}\label{lista-de-sites-livros-fuxf3runs-postagens-de-blogs-reposituxf3rios-do-github.}
+
+O arquivo links.txt contido no diretório, contém a listagem dos sites
+que utilizei como base e ajuda para realizar esse projeto
+
 
     % Add a bibliography block to the postdoc
     
