@@ -13,7 +13,7 @@ Neste projeto, você vai analisar um conjunto de dados e, em seguida, comunicar 
 * O fator genêro teve relação com o fator sobrevivência? Mulheres tiveram mais propensão a sobreviver do que os homens?
 
 
-## Observação
+# IMPORTANTE
 
-# Links.TXT
+## Links.TXT
 Contém uma lista de sites, livros, fóruns, postagens de blogs, repositórios do GitHub, etc. que você usou ou em que se baseou para criar o projeto
