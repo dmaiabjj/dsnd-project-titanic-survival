@@ -11,3 +11,9 @@ Neste projeto, você vai analisar um conjunto de dados e, em seguida, comunicar 
 * O fator classe ou fator taxa da passagem tiveram relação com o fator sobrevivência? Pessoas com poder aquisitivo maior tinham propensão a sobreviver mais que pessoas com poder aquisitivo menor?
 * O fator ser passageiro único ou viajar em família teve relação com o fator sobrevivência? Famílias tiveram mais chances de sobreviver do que pessoas viajando sozinha? E o tamanho da família interferia nessa correlação?
 * O fator genêro teve relação com o fator sobrevivência? Mulheres tiveram mais propensão a sobreviver do que os homens?
+
+
+## Observação
+
+# Links.TXT
+Contém uma lista de sites, livros, fóruns, postagens de blogs, repositórios do GitHub, etc. que você usou ou em que se baseou para criar o projeto
