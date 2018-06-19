@@ -317,7 +317,7 @@ essencias}\label{importando-bibliotecas-essencias}
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}616}]:} \PY{c+c1}{\PYZsh{}Importing the pandas library, responsable to manipulate and tranform the data contained on csv files on dataframes}
+{\color{incolor}In [{\color{incolor}288}]:} \PY{c+c1}{\PYZsh{}Importing the pandas library, responsable to manipulate and tranform the data contained on csv files on dataframes}
           \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
           \PY{c+c1}{\PYZsh{}Importing the numpy library, responsible to smooth our effort in analyze the data}
           \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
@@ -338,13 +338,13 @@ uma estrutura do Panda chamada dataframe do Panda de fácil manipulação e
 também carregando uma parte dos dados para verificar seu conteúdo.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}617}]:} \PY{n}{passengers}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{titanic\PYZhy{}data\PYZhy{}6.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}289}]:} \PY{n}{passengers}  \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{titanic\PYZhy{}data\PYZhy{}6.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}617}]:}    PassengerId  Survived  Pclass  \textbackslash{}
+{\color{outcolor}Out[{\color{outcolor}289}]:}    PassengerId  Survived  Pclass  \textbackslash{}
           0            1         0       3   
           1            2         1       1   
           2            3         1       3   
@@ -384,12 +384,12 @@ estatísticas}\label{verificando-algumas-estatuxedsticas}
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}618}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}290}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}618}]:}        PassengerId    Survived      Pclass         Age       SibSp  \textbackslash{}
+{\color{outcolor}Out[{\color{outcolor}290}]:}        PassengerId    Survived      Pclass         Age       SibSp  \textbackslash{}
           count   891.000000  891.000000  891.000000  714.000000  891.000000   
           mean    446.000000    0.383838    2.308642   29.699118    0.523008   
           std     257.353842    0.486592    0.836071   14.526497    1.102743   
@@ -497,7 +497,7 @@ Podemos verificar que as colunas Age, Cabin and Embarked possuem 177,
 687 e 2 dados nulos respectivamentos.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}619}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}291}]:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
           \PY{n+nb}{print}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}\PY{p}{)}
           \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Duplicated \PYZhy{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -554,7 +554,7 @@ valores nulos com a mediana da idade referente ao título que a pessoa
 possui
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}620}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([A\PYZhy{}Za\PYZhy{}z]+)}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}292}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Name}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{extract}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{([A\PYZhy{}Za\PYZhy{}z]+)}\PY{l+s+s1}{\PYZbs{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{expand}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
           \PY{n}{ages}                \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Title}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
           \PY{k}{for} \PY{n}{title} \PY{o+ow}{in} \PY{n}{passengers}\PY{o}{.}\PY{n}{Title}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{:}
               \PY{n}{median} \PY{o}{=} \PY{n}{ages}\PY{p}{[}\PY{n}{title}\PY{p}{]}
@@ -594,14 +594,14 @@ temos a classe do ticket não irá nos atrapalhar na análise, então iremos
 dropar essa coluna.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}621}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{Embarked}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{passengers}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embarked}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mode}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}293}]:} \PY{n}{passengers}\PY{o}{.}\PY{n}{Embarked}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{n}{passengers}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Embarked}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mode}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cabin}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{columns}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}621}]:} PassengerId    0
+{\color{outcolor}Out[{\color{outcolor}293}]:} PassengerId    0
           Survived       0
           Pclass         0
           Name           0
@@ -634,43 +634,114 @@ Criaremos colunas novas afim de facilitar a análise dos dados
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}622}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{SibSp} \PY{o}{+} \PY{n}{passengers}\PY{o}{.}\PY{n}{Parch}\PY{o}{+} \PY{l+m+mi}{1}
+{\color{incolor}In [{\color{incolor}294}]:} \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}  \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{SibSp} \PY{o}{+} \PY{n}{passengers}\PY{o}{.}\PY{n}{Parch}\PY{o}{+} \PY{l+m+mi}{1}
           \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}            \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
           \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}    \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Age}\PY{p}{,}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{)}
           \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}   \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{Fare}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cheap}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Very Expensive}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
-          \PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}     \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Single}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Large}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{passengers}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilyGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}    \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{cut}\PY{p}{(}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{n}{passengers}\PY{o}{.}\PY{n}{FamilySize}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Single}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Normal}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Large}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
 
     \subsection{9. Visualização Features x
 Sobrevivência}\label{visualizauxe7uxe3o-features-x-sobrevivuxeancia}
 
-Primeiro construímos uma função que passado o nome da feature, ela gera
-um gráfico relacionado a feature Survived
+Primeiro construímos uma função que passado o nome da váriavel
+dependente e independente, ela gera um gráfico da relação entre as 2
+variáveis
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}623}]:} \PY{k}{def} \PY{n+nf}{generate\PYZus{}graph}\PY{p}{(}\PY{n}{feature}\PY{p}{,}\PY{n}{graph}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
-              \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
-          \PY{l+s+sd}{    Função que recebe o nome da feature e gera o gráfico relacionado a feature Survived}
-          \PY{l+s+sd}{    Argumentos:}
-          \PY{l+s+sd}{        feature:  String contendo o nome da feature}
-          \PY{l+s+sd}{    Retorna:}
-          \PY{l+s+sd}{        None}
-          \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
-              \PY{n}{ax}       \PY{o}{=} \PY{k+kc}{None}
-              \PY{n}{group}    \PY{o}{=} \PY{n}{passengers}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{feature}\PY{p}{]}\PY{p}{,}\PY{n}{sort}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{p}{)}
-              \PY{n}{df\PYZus{}aux}   \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{group}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{group}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
-              \PY{n}{ax}       \PY{o}{=} \PY{n}{df\PYZus{}aux}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{n}{graph}\PY{p}{,}\PY{n}{title}\PY{o}{=}\PY{n}{feature}\PY{p}{,}\PY{n}{grid}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}\PY{n}{legend}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{reverse}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{60}\PY{p}{,}\PY{n}{stacked}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}295}]:} \PY{k}{def} \PY{n+nf}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{ax} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{countplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{independent}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dependent}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{independent}\PY{p}{)}
               \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of people}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-              \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{;}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{heatmap}\PY{p}{(}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{corr}  \PY{o}{=} \PY{n}{data\PYZus{}frame}\PY{o}{.}\PY{n}{corr}\PY{p}{(}\PY{p}{)}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{corr}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Heat Map}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
               
+          \PY{k}{def} \PY{n+nf}{join}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{jointplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{independent}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{dependent}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{,}\PY{n}{kind}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{reg}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{independent}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{violinplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{independent}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{dependent}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{,}\PY{n}{split}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}\PY{n}{size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{aspect}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{7}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{independent}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{pointplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{independent}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{dependent}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{,} \PY{n}{dodge}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+              \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{independent}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{kde}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{facet} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{FacetGrid}\PY{p}{(}\PY{n}{data\PYZus{}frame}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{dependent}\PY{p}{,}\PY{n}{aspect}\PY{o}{=}\PY{l+m+mf}{1.2}\PY{p}{,}\PY{n}{size}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
+              \PY{n}{facet}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{shade}\PY{o}{=} \PY{k+kc}{True}\PY{p}{)}
+              \PY{n}{facet}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{xlim}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{data\PYZus{}frame}\PY{p}{[}\PY{n}{independent}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+              
+          \PY{k}{def} \PY{n+nf}{swarm}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{n}{hue}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{swarmplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{hue}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{;}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{box}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{n}{hue}\PY{p}{,}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{:}
+              \PY{n}{sns}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{n}{hue}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{data\PYZus{}frame}\PY{p}{)}\PY{p}{;}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+              
+          \PY{k}{def} \PY{n+nf}{graph}\PY{p}{(}\PY{n}{graph}\PY{p}{)}\PY{p}{:}
+              \PY{n}{switcher} \PY{o}{=} \PY{p}{\PYZob{}}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{bar}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{heatmap}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{heatmap}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{join}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{join}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{violin}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{violin}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{point}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{point}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{kde}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{kde}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{swarm}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{swarm}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{box}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{box}
+                  \PY{p}{\PYZcb{}}
+              \PY{c+c1}{\PYZsh{} Get the function from switcher dictionary}
+              \PY{k}{return} \PY{n}{switcher}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{graph}\PY{p}{)}
+          
+          \PY{n}{bar}     \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bar}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{heatmap} \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{heatmap}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{join}    \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{join}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{violin}  \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{violin}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{point}   \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{point}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{kde}     \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{kde}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{swarm}   \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{swarm}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{box}     \PY{o}{=} \PY{n}{graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{box}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
 
-    \subsection{9.1 Gráfico Pclass x
-Survived}\label{gruxe1fico-pclass-x-survived}
+    \subsection{9.1 HeatMap}\label{heatmap}
 
-No gráfico vemos que a 1º classe foi a única com taxa de sobrevivência
+O gráfico de heatmap é importante para verificarmos o quão
+correlacionadas estão as variáveis uma das outras, assim teremos uma
+noção de quais são importantes para nossa análise e consequentemente
+estarão em nossas futuras vizualizações.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}296}]:} \PY{n}{heatmap}\PY{p}{(}\PY{n}{passengers}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.1 Gráficos Pclass x
+Survived}\label{gruxe1ficos-pclass-x-survived}
+
+Nos gráficos vemos que a 1º classe foi a única com taxa de sobrevivência
 maior do que a de não sobrevivência comparada as outras classes(2º,3º) e
 que na 3º classe a discrepância entre mortos e sobreviventes foi bem
 alta comparada as outras classes(1º,2º), com muito mais mortos do que
@@ -681,48 +752,23 @@ outras classes(2º,3º) principalmente na 3º, a tendência é de não
 sobrevivência
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}624}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pclass}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}297}]:} \PY{c+c1}{\PYZsh{}Setting aesthetics of seaborn  graphic and setting our dependent variable}
+          \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{p}{)}
+          \PY{n}{dependent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Survived}\PY{l+s+s2}{\PYZdq{}}
 \end{Verbatim}
 
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \subsection{9.2 Gráfico Sex x Survived}\label{gruxe1fico-sex-x-survived}
-
-No gráfico vemos que a taxa de sobrevivência de mulheres foi maior do
-que a de não sobrevivência comparada a taxa dos homens.
-
-A tendência de sobrevivência é maior nas mulheres do que nos homens.
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}625}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sex}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}298}]:} \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pclass}\PY{l+s+s2}{\PYZdq{}}
 \end{Verbatim}
 
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \subsection{9.3 Gráfico FamilySize x
-Survived}\label{gruxe1fico-familysize-x-survived}
-
-Temos uma categorização da quantidade de familiares: * Single - (1) *
-Normal - (2 - 4) * Large - (5 - 11)
-
-No gráfico vemos famílias de tamanho normal, de 2 até 4 integrantes foi
-a única com taxa de sobrevivência maior do que a de não sobrevivência
-comparada com as outras categorias.
-
-A tendência de sobrevivência é maior em famílias de tamanho normal, do
-que em famílias grandes ou até mesmo se a pessoa estivesse viajando
-sozinha.
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}626}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}299}]:} \PY{n}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{join}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{kde}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -731,24 +777,39 @@ sozinha.
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsection{9.4 Gráfico FareGroup x Survived e Fare x
-Survived}\label{gruxe1fico-faregroup-x-survived-e-fare-x-survived}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.2 Gráficos Sex x
+Survived}\label{gruxe1ficos-sex-x-survived}
 
-Temos uma categorização dos valores da Tarifa pagas: * Cheap - (0 -
-128.082) * Normal - (128.083 - 256.165) * Expensive - (256.166 -
-384.247) * Very Expensive - (384.248 - 512.329)
+Nos gráficos vemos que a taxa de sobrevivência de mulheres foi maior do
+que a de não sobrevivência comparada a taxa dos homens.
 
-No gráfico vemos que a tarifa mais barata foi a única que teve a taxa de
-não sobrevivência maior do que de sobrevivência e com uma discrepância
-muito alta comparada com as outras tarifas.
-
-A tendência de sobrevivência é maior em pessoas que obtiveram taxas
-entre Normal e Carissimas(Normal - Very Expensive) comparadas as taxas
-mais baratas(Cheap).
+A tendência de sobrevivência é maior nas mulheres do que nos homens.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}627}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-          \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fare}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}300}]:} \PY{n}{independent}   \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sex}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -762,21 +823,35 @@ mais baratas(Cheap).
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsection{9.4 Gráfico AgeGroup x Survived e Age x
-Survived}\label{gruxe1fico-agegroup-x-survived-e-age-x-survived}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.3 Gráficos FamilyGroup x Survived e FamilySize x
+Survived}\label{gruxe1ficos-familygroup-x-survived-e-familysize-x-survived}
 
-No gráfico vemos que a faixa etária de (0 - 15) foi a única que teve
-mais sobreviventes do que mortos e que na faixa de (15 - 30) a
-discrepância entre mortos e sobreviventes foi bem alta comparada as
-outras faixas, com muito mais mortos do que sobreviventes.
+Temos uma categorização da quantidade de familiares: * Single - (1) *
+Normal - (2 - 4) * Large - (5 - 11)
 
-A tendência de sobrevivência é maior em pessoas de 0 até 15 anos mas no
-caso das outras faixas etárias principalmente de 15 até 30, a tendência
-é de não sobrevivência
+Nos gráficos vemos famílias de tamanho normal, de 2 até 4 integrantes
+foi a única com taxa de sobrevivência maior do que a de não
+sobrevivência comparada com as outras categorias.
+
+A tendência de sobrevivência é maior em famílias de tamanho normal, do
+que em famílias grandes ou até mesmo se a pessoa estivesse viajando
+sozinha.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}628}]:} \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-          \PY{n}{generate\PYZus{}graph}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{area}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}301}]:} \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilyGroup}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilySize}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{kde}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{join}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{swarm}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilyGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{box}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FamilyGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -790,12 +865,210 @@ caso das outras faixas etárias principalmente de 15 até 30, a tendência
     \end{center}
     { \hspace*{\fill} \\}
     
-    \subsection{10 - Lista de sites, livros, fóruns, postagens de blogs,
-repositórios do
-GitHub.}\label{lista-de-sites-livros-fuxf3runs-postagens-de-blogs-reposituxf3rios-do-github.}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.4 Gráficos FareGroup x Survived e Fare x
+Survived}\label{gruxe1ficos-faregroup-x-survived-e-fare-x-survived}
 
-O arquivo links.txt contido no diretório, contém a listagem dos sites
-que utilizei como base e ajuda para realizar esse projeto
+Temos uma categorização dos valores da Tarifa pagas: * Cheap - (0 -
+128.082) * Normal - (128.083 - 256.165) * Expensive - (256.166 -
+384.247) * Very Expensive - (384.248 - 512.329)
+
+Nos gráficos vemos que a tarifa mais barata foi a única que teve a taxa
+de não sobrevivência maior do que de sobrevivência e com uma
+discrepância muito alta comparada com as outras tarifas.
+
+A tendência de sobrevivência é maior em pessoas que obtiveram taxas
+entre Normal e Carissimas(Normal - Very Expensive) comparadas as taxas
+mais baratas(Cheap).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}302}]:} \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fare}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{join}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{kde}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{swarm}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{box}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{FareGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{9.4 Gráficos AgeGroup x Survived e Age x
+Survived}\label{gruxe1ficos-agegroup-x-survived-e-age-x-survived}
+
+Nos gráficos vemos que a faixa etária de (0 - 15) foi a única que teve
+mais sobreviventes do que mortos e que na faixa de (15 - 30) a
+discrepância entre mortos e sobreviventes foi bem alta comparada as
+outras faixas, com muito mais mortos do que sobreviventes.
+
+A tendência de sobrevivência é maior em pessoas de 0 até 15 anos mas no
+caso das outras faixas etárias principalmente de 15 até 30, a tendência
+é de não sobrevivência
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}303}]:} \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{bar}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{point}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{violin}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{independent} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age}\PY{l+s+s2}{\PYZdq{}}
+          \PY{n}{join}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{kde}\PY{p}{(}\PY{n}{dependent}\PY{p}{,}\PY{n}{independent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{swarm}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+          \PY{n}{box}\PY{p}{(}\PY{n}{independent}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{AgeGroup}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{dependent}\PY{p}{,}\PY{n}{passengers}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{10 - Conclusão}\label{conclusuxe3o}
+
+Pontos chaves da análise:
+
+\begin{itemize}
+\item
+  \textbf{Sexo dos passageiros} : Existe uma forte correlação entre o
+  sexo dos passageiros e os sobreviventes, aparentemente mulheres
+  tiveram preferências de uso dos botes salvavidas em relação aos
+  homens;
+\item
+  \textbf{Classe da Passagem}: Assim como o sexo, a classe das passagens
+  também possui uma forte correlação com o fator de sobrevivência,
+  classes melhores possuem taxa de sobrevivência maior;
+\item
+  \textbf{Idade}: Não possue uma correlação muito forte, porém no
+  gráfico de distribuição populacional dos sobreviventes, verificamos um
+  pico em torno do intervalo (\textless{}5 anos) que indica uma
+  preferência de uso dos botes salvavidas também para as crianças;
+\item
+  \textbf{Tarifa}: Não aparente ter uma correlação com o fator
+  sobrevivência e nem possue algo a se destacar;
+\item
+  \textbf{Tamanho das famílias}: Aparentemente famílias de tamanho
+  normal(2 - 4 membros) apresentaram um fator de sobrevivência maior do
+  que famílias maiores(\textgreater{} 4 membros) e passageiros que
+  viajaram sozinhos.
+\end{itemize}
+
+    \subsection{10.1 - Limitações}\label{limitauxe7uxf5es}
+
+Essa amostra de dados referente ao naufrágio do Titanic possuí algumas
+limitações e tivemos alguns desafios para efetuar essa análise. As
+colunas Cabin, Age e Embarked possuem dados faltantes.
+
+Por conta do alto número de dados faltantes da coluna Cabin, dropamos
+essa coluna pois a mesma acabaria alterando os resultados de nossa
+análise, a coluna Embarked possuí apenas 2 registros faltantes, sendo um
+valor tão baixo, calculamos a moda da coluna Embarked, que foi o valor
+"S" e adicionamos a esses 2 registros. A coluna Age porém foi um pouco
+mais complicado, além de uma quantidade alta de registros faltantes,
+essa coluna seria essencial pra nossa análise então tivemos que adotar
+uma estratégia mais complexa comparada as outras. Extraímos da coluna
+Name, o equivalente ao pronome de tratamento e categorizamos os
+passageiros conforme o valor extraído, após efetuada essa extração
+calculamos a média de idade pra cada pronome de tratamento e adicionamos
+essa média nos registros faltantes usando como comparação o pronome de
+tratamento do registro na qual o dado Age estava faltando. Assim
+conseguimos sanar os problemas quanto a amostra de dados.
+
+No naufrágio do Titanic dos 2224 passageiros apenas 722 sobreviveram,
+uma taxa de sobrevivência de ± 30\% do que seria a nossa população.
+Nossa amostra possue registros de 891 passageiros, o que representa 40\%
+do total da população, porém possue uma taxa de sobrevivência de ± 38\%,
+um valor muito próximo do valor da população. Com isso podemos dizer que
+essa amostra é uma representação bem efetiva da nossa população,
 
 
     % Add a bibliography block to the postdoc
